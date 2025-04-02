@@ -60,6 +60,8 @@ const selectedOptions = () => {
 	if (symbolsInputElement.checked) {
 		finalPassword += symbols;
 	}
+
+	//para cuando quitas el checkd, habrñia que meterlo en un bucle?
 };
 
 //escuchas
