@@ -16,63 +16,70 @@ const lowercaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
 const numbers = '01234567890';
 const symbols = '!@#$%^&*()_+-={}[]:;<>,.?/';
 
-//LÓGICA GENERADOR CONTRASEÑA
-
-//Para el range
+//LÓGICA DE LA CONTRSEÑA
 
 const getPasswordLength = () => {
-	passwordLengthElement.textContent = rangeInputElement.value;
-	return getPasswordLength;
+  passwordLengthElement.textContent = rangeInputElement.value;
+  return getPasswordLength;
 };
-rangeInputElement.addEventListener('input', getPasswordLength);
-
-//Para generar la contraseña en sí
-
-let finalPassword = '';
-
-const getPassword = () => {
-	const inputValue = rangeInputElement.value;
-	let randomCharacters = '';
-	for (i = 0; i < inputValue; i++) {
-		const randomPosition = Math.floor(Math.random() * finalPassword.length);
-		const randomCharacter = finalPassword.charAt(randomPosition);
-		randomCharacters += randomCharacter;
-	}
-	console.log(randomCharacters);
-
-	return randomCharacters;
-};
-
-//tengo que hacer un bucle que recorra la longitud de las opciones selccionadas y guardarlas para pasarlas a finalpassword +=
-
-// opciones de botones
 
 const selectedOptions = () => {
-	if (uppercaseInputElement.checked) {
-		finalPassword += uppercaseCharacters;
-	}
-	if (lowerercaseInputElement.checked) {
-		finalPassword += lowercaseCharacters;
-	}
-	if (numbersInputElement.checked) {
-		finalPassword += numbers;
-	}
-	if (symbolsInputElement.checked) {
-		finalPassword += symbols;
-	}
+  let selectedCharacters = '';
+  if (uppercaseInputElement.checked) {
+    selectedCharacters += uppercaseCharacters;
+  }
+  if (lowerercaseInputElement.checked) {
+    selectedCharacters += lowercaseCharacters;
+  }
+  if (numbersInputElement.checked) {
+    selectedCharacters += numbers;
+  }
+  if (symbolsInputElement.checked) {
+    selectedCharacters += symbols;
+  }
 
-	//para cuando quitas el checkd, habrñia que meterlo en un bucle?
+  //AL MENOS UNO DE ELLOS
+
+  activateButton();
+  return selectedCharacters;
 };
 
-//escuchas
+const generatePassword = () => {
+  const rangeBar = rangeInputElement.value;
 
+  let randomPasswordCharacters = selectedOptions();
+  let totalRandomCharacters = '';
+
+  for (i = 0; i < rangeBar; i++) {
+    const randomPosition = Math.floor(
+      Math.random() * randomPasswordCharacters.length
+    );
+    const randomCharacter = randomPasswordCharacters.charAt(randomPosition);
+    totalRandomCharacters += randomCharacter;
+  }
+  return totalRandomCharacters;
+};
+
+const finalPassword = () => {
+  passwordElement.value = generatePassword();
+};
+
+const activateButton = () => {
+  if (
+    uppercaseInputElement.checked ||
+    lowerercaseInputElement.checked ||
+    numbersInputElement.checked ||
+    symbolsInputElement.checked
+  ) {
+    generatorButtonElement.disabled = false;
+  } else {
+    generatorButtonElement.disabled = true;
+  }
+};
+
+rangeInputElement.addEventListener('input', getPasswordLength);
 uppercaseInputElement.addEventListener('change', selectedOptions);
 lowerercaseInputElement.addEventListener('change', selectedOptions);
 numbersInputElement.addEventListener('change', selectedOptions);
 symbolsInputElement.addEventListener('change', selectedOptions);
-
-//funcionamiento del botón
-const generatePassword = () => {
-	passwordElement.value = getPassword(); //Por qué es value y no text content?
-};
-generatorButtonElement.addEventListener('click', generatePassword);
+generatorButtonElement.addEventListener('click', finalPassword);
