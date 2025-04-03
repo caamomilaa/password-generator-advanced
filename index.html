@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <main class="password-generator">
-      <div class="password-container">
-        <input
-          type="text"
-          id="password"
-          class="placeholder-text"
-          placeholder="P4$5W0RD!"
-          readonly=""
-        />
-      </div>
-      <div class="length-container">
-        <span class="text">LENGTH:</span>
-        <span class="text" id="password-length">16</span>
-      </div>
-      <div class="range-container">
-        <span class="text">4</span>
-        <input
-          type="range"
-          min="4"
-          max="32"
-          class="range-input"
-          id="range-input"
-        />
-        <span class="text">32</span>
-      </div>
-      <div class="checkbox-container">
-        <p class="checkbox-text">Include Uppercase</p>
-        <input
-          class="input"
-          type="checkbox"
-          name="uppercase-input"
-          id="uppercase-input"
-        />
-        <label for="uppercase-input" class="label"></label>
-      </div>
-      <div class="checkbox-container">
-        <p class="checkbox-text">Include Lowercase</p>
-        <input
-          class="input"
-          type="checkbox"
-          name="lowercase-input"
-          id="lowercase-input"
-        />
-        <label for="lowercase-input" class="label"></label>
-      </div>
-      <div class="checkbox-container">
-        <p class="checkbox-text">Include Numbers</p>
-        <input
-          class="input"
-          type="checkbox"
-          name="numbers-input"
-          id="numbers-input"
-        />
-        <label for="numbers-input" class="label"></label>
-      </div>
-      <div class="checkbox-container">
-        <p class="checkbox-text">Include Symbols</p>
-        <input
-          class="input"
-          type="checkbox"
-          name="symbols-input"
-          id="symbols-input"
-        />
-        <label for="symbols-input" class="label"></label>
-      </div>
-      <button class="generator-button" id="generator-button" disabled>
-        Generate Password
-      </button>
-    </main>
-    <script src="./js/scripts.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<main class="password-generator">
+			<div class="password-container">
+				<input
+					type="text"
+					id="password"
+					class="placeholder-text"
+					placeholder="P4$5W0RD!"
+					readonly=""
+				/>
+			</div>
+			<div class="length-container">
+				<span class="text">LENGTH:</span>
+				<span class="text" id="password-length">16</span>
+			</div>
+			<div class="range-container">
+				<span class="text">4</span>
+				<input
+					type="range"
+					min="4"
+					max="32"
+					class="range-input"
+					id="range-input"
+				/>
+				<span class="text">32</span>
+			</div>
+			<div class="checkbox-container">
+				<p class="checkbox-text">Include Uppercase</p>
+				<input
+					class="input"
+					type="checkbox"
+					name="uppercase-input"
+					id="uppercase-input"
+				/>
+				<label for="uppercase-input" class="label"></label>
+			</div>
+			<div class="checkbox-container">
+				<p class="checkbox-text">Include Lowercase</p>
+				<input
+					class="input"
+					type="checkbox"
+					name="lowercase-input"
+					id="lowercase-input"
+				/>
+				<label for="lowercase-input" class="label"></label>
+			</div>
+			<div class="checkbox-container">
+				<p class="checkbox-text">Include Numbers</p>
+				<input
+					class="input"
+					type="checkbox"
+					name="numbers-input"
+					id="numbers-input"
+				/>
+				<label for="numbers-input" class="label"></label>
+			</div>
+			<div class="checkbox-container">
+				<p class="checkbox-text">Include Symbols</p>
+				<input
+					class="input"
+					type="checkbox"
+					name="symbols-input"
+					id="symbols-input"
+				/>
+				<label for="symbols-input" class="label"></label>
+			</div>
+			<button class="generator-button" id="generator-button">
+				Generate Password DISABLE
+			</button>
+		</main>
+		<script src="./js/scripts.js"></script>
+	</body>
 </html>
